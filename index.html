@@ -3,49 +3,157 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>UQPA</title>
-  <meta name="description" content="UQPA — new website coming soon.">
+  <title>UQPA — Watch this space</title>
+  <meta name="description" content="Something new is on its way from UQPA. Watch this space.">
+  <meta name="theme-color" content="#2a0640">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="UQPA — Watch this space">
+  <meta property="og:description" content="Something new is on its way from UQPA.">
+  <meta property="og:url" content="https://uqpunjabi.com/">
+  <meta property="og:image" content="https://uqpunjabi.com/assets/uqpa-share.jpg">
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Yatra+One&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #f7f7f5;
-      --fg: #1a1a1a;
-      --muted: #6b6b6b;
-      --accent: #51247a;
+      --purple-deep: #22052f;
+      --purple: #3d0a5c;
+      --purple-bright: #5a1490;
+      --cream: #fdeed9;
+      --gold: #d6c290;
+      --gold-muted: rgba(214, 194, 144, 0.75);
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #121212;
-        --fg: #f2f2f2;
-        --muted: #a0a0a0;
-        --accent: #b48ce0;
-      }
-    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
+
+    html, body { min-height: 100%; }
+
     body {
+      min-height: 100vh;
+      min-height: 100svh;
       display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 2.5rem 16px 1.5rem;
+      background-color: var(--purple-deep);
+      background-image: radial-gradient(circle at 50% 38%, var(--purple-bright) 0%, var(--purple) 42%, var(--purple-deep) 100%);
+      color: var(--cream);
+      font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 16px;
-      background: var(--bg);
-      color: var(--fg);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.5;
-      text-align: center;
     }
-    main { max-width: 32rem; }
+
+    .logo-wrap {
+      position: relative;
+      width: clamp(220px, 68vw, 380px);
+      aspect-ratio: 1;
+    }
+
+    /* Soft warm glow behind the mandala */
+    .logo-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -12%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(253, 238, 217, 0.28) 0%, rgba(253, 238, 217, 0) 65%);
+    }
+
+    .logo {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      animation: spin 60s linear infinite;
+      will-change: transform;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .logo { animation: none; }
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 2.25rem;
+      color: var(--gold);
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      width: clamp(48px, 14vw, 90px);
+      height: 1px;
+    }
+
+    .divider::before { background: linear-gradient(to right, transparent, var(--gold)); }
+    .divider::after { background: linear-gradient(to left, transparent, var(--gold)); }
+
+    .divider svg { width: 14px; height: 14px; }
+
     h1 {
-      font-size: clamp(2.5rem, 10vw, 4.5rem);
-      letter-spacing: 0.08em;
-      color: var(--accent);
+      margin-top: 1.25rem;
+      font-family: "Yatra One", "Cormorant Garamond", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(2.25rem, 9vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      color: var(--cream);
     }
-    p { margin-top: 0.75rem; color: var(--muted); font-size: 1.125rem; }
+
+    .tagline {
+      margin-top: 0.75rem;
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(1.15rem, 4vw, 1.5rem);
+      color: var(--gold);
+    }
+
+    footer {
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      color: var(--gold-muted);
+    }
   </style>
 </head>
 <body>
   <main>
-    <h1>UQPA</h1>
-    <p>Our new website is coming soon.</p>
+    <div class="logo-wrap">
+      <img class="logo" src="assets/uqpa-logo.png" width="447" height="447"
+           alt="UQPA logo: a dhol drum framed by wheat inside a mandala">
+    </div>
+
+    <div class="divider" aria-hidden="true">
+      <svg viewBox="0 0 14 14"><path d="M7 0 L14 7 L7 14 L0 7 Z" fill="currentColor"/></svg>
+    </div>
+
+    <h1>Watch this space</h1>
+    <p class="tagline">Something new is on its way.</p>
   </main>
+
+  <footer>&copy; <span id="year">2026</span> UQPA</footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
